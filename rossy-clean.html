@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Rossy's Cleaning Services — Professional, reliable home cleaning serving Addison, Frisco, Plano, Dallas and surrounding areas. Book today!"/>
+<title>Rossy's Cleaning Co. | Addison, TX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1E6EBD;--blue2:#3A8FE0;--blue3:#5AAFF5;--blue-dim:rgba(30,110,189,.2);
+  --gold:#C9A84C;--gold2:#E8C97A;--gold-dim:rgba(201,168,76,.18);
+  --blk:#080C10;--blk2:#0C1219;--blk3:#111820;
+  --w:#FFFFFF;--muted:rgba(255,255,255,.65);--dim:rgba(255,255,255,.35);
+  --serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--blk);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(45,106,79,.2)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--green3);border-radius:2px}
+a{color:inherit;text-decoration:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.9)}}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .8s,transform .8s}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .8s,transform .8s}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.s1{transition-delay:.1s}.s2{transition-delay:.2s}.s3{transition-delay:.3s}.s4{transition-delay:.4s}.s5{transition-delay:.5s}.s6{transition-delay:.6s}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 3rem;transition:all .35s;background:transparent}
+nav.scrolled{background:rgba(8,12,16,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,110,189,.18);box-shadow:0 2px 30px rgba(0,0,0,.5)}
+.nav-logo{cursor:pointer;display:flex;align-items:center;line-height:1}
+.nav-logo span{color:var(--green)}
+.nav-logo-sub{font-size:.48rem;letter-spacing:.25em;text-transform:uppercase;color:var(--green2);font-family:var(--sans);margin-top:2px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.65);cursor:pointer;transition:color .2s;position:relative}
+.nav-links a::after{content:"";position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--green);transition:width .3s}
+.nav-links a:hover{color:var(--green)}
+.nav-links a:hover::after{width:100%;background:var(--blue2)}
+.nav-book{padding:.52rem 1.4rem;border:1px solid var(--green);color:var(--green);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:transparent;font-family:var(--sans);transition:all .3s;position:relative;overflow:hidden}
+.nav-book::before{content:"";position:absolute;inset:0;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s;z-index:-1}
+.nav-book:hover{color:var(--w)}
+.nav-book:hover::before{transform:scaleX(1)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--blk)}
+.mob-menu{display:none;position:fixed;inset:0;z-index:99;background:rgba(8,12,16,.98);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;backdrop-filter:blur(20px)}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:var(--serif);font-size:2rem;font-weight:700;cursor:pointer;transition:all .3s;color:var(--w)}
+.mob-menu a:hover{color:var(--green);transform:translateX(8px)}
+.mob-close{position:absolute;top:1.5rem;right:2rem;font-size:1.4rem;cursor:pointer;background:none;border:none;color:var(--w)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 3rem 5rem;position:relative;overflow:hidden;background:linear-gradient(135deg,#080C10 0%,#0C1828 50%,#080C10 100%)}
+.hero-circles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-circle-1{position:absolute;top:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(30,110,189,.06) 0%,transparent 70%);animation:spinSlow 40s linear infinite}
+.hero-circle-2{position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(30,110,189,.04) 0%,transparent 70%)}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(30,110,189,.08) 1px,transparent 1px);background-size:32px 32px}
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:4rem;width:100%;position:relative;z-index:2}
+.hero-content{flex:1;max-width:580px}
+.hero-tag{display:flex;align-items:center;gap:.7rem;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--blue3);margin-bottom:1.3rem;animation:fadeUp .6s .1s both}
+.hero-tag-line{display:block;width:2rem;height:1.5px;background:var(--blue2)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.02em;margin-bottom:1.3rem;animation:fadeUp .7s .2s both;color:var(--w)}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:400}
+.hero h1 span{display:block}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.75);font-weight:300;max-width:420px;line-height:1.8;margin-bottom:2rem;animation:fadeUp .7s .35s both}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;animation:fadeUp .7s .5s both}
+.btn-primary{padding:.9rem 2rem;background:#000;color:#fff;border:2px solid #000;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:all .3s;border-radius:2px}
+.btn-primary:hover{background:#111;border-color:var(--gold);color:var(--gold);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.btn-outline-green{padding:.9rem 2rem;border:2px solid rgba(255,255,255,.35);color:#fff;background:transparent;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:all .3s;border-radius:2px}
+.btn-outline-green:hover{border-color:var(--blue2);color:var(--blue2);transform:translateY(-3px)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border:1.5px solid rgba(201,168,76,.3);background:rgba(201,168,76,.08);border-radius:20px;animation:fadeUp .7s .65s both}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--blue2);animation:pulse 2s infinite}
+.badge-txt{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue3)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:3rem;display:flex;align-items:center;gap:.75rem;z-index:2}
+.scroll-line{width:38px;height:1.5px;background:rgba(255,255,255,.2);position:relative;overflow:hidden;border-radius:2px}
+.scroll-line::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--green);animation:shimmer 2.2s ease-in-out infinite}
+.scroll-txt{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* HERO CARD */
+.hero-card-wrap{flex-shrink:0;animation:fadeUp .9s .4s both}
+.rossy-card{width:290px;background:rgba(30,110,189,.08);backdrop-filter:blur(12px);border:1px solid rgba(30,110,189,.3);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);padding:2rem 1.75rem;position:relative;overflow:hidden;animation:float 5s ease-in-out infinite;color:var(--w)}
+.rossy-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2),var(--blue3))}
+.rossy-card-tag{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue3);margin-bottom:.75rem;display:block;font-weight:500}
+.rossy-emoji{font-size:3rem;display:block;margin-bottom:.75rem;animation:float 4s ease-in-out infinite}
+.rossy-name{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--w);margin-bottom:.2rem}
+.rossy-title{font-size:.78rem;color:rgba(255,255,255,.6);margin-bottom:1.25rem;font-weight:300}
+.rossy-div{height:1.5px;background:linear-gradient(to right,rgba(30,110,189,.6),transparent);margin-bottom:1.25rem}
+.rossy-stats{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-bottom:1.25rem}
+.rossy-num{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--blue2);display:block;line-height:1}
+.rossy-lbl{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:.2rem;display:block}
+.rossy-areas{background:rgba(30,110,189,.12);border:1px solid rgba(30,110,189,.25);border-radius:8px;padding:.75rem 1rem}
+.rossy-areas-label{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue3);display:block;margin-bottom:.4rem;font-weight:500}
+.rossy-areas-list{font-size:.75rem;color:rgba(255,255,255,.75);font-weight:400;line-height:1.5}
+.rossy-rating{display:flex;align-items:center;gap:.5rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(30,110,189,.2)}
+.rossy-stars{color:#F59E0B;font-size:.9rem}
+.rossy-rtxt{font-size:.7rem;color:rgba(255,255,255,.5)}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--blue);padding:.65rem 0;overflow:hidden}
+.marquee-track{display:flex;white-space:nowrap;animation:marqueeScroll 18s linear infinite}
+.marquee-item{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;font-weight:600;padding:0 2rem;font-family:var(--sans)}
+.marquee-sep{display:inline-block;width:4px;height:4px;background:rgba(255,255,255,.4);border-radius:50%;vertical-align:middle;margin:0 .3rem}
+
+/* STATS */
+.stats-bar{background:#0A1220;border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);padding:2rem 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat{text-align:center;position:relative}
+.stat::after{content:"";position:absolute;right:0;top:15%;bottom:15%;width:1px;background:rgba(45,106,79,.1)}
+.stat:last-child::after{display:none}
+.stat-num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold);display:block;line-height:1}
+.stat-lbl{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-top:.4rem;display:block}
+
+/* SECTION */
+.section{padding:6rem 3rem;position:relative;overflow:hidden}
+.section.light{background:#0D1624}
+.section.soft{background:#111D2E}
+.sec-eyebrow{display:flex;align-items:center;gap:.65rem;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue3);margin-bottom:.65rem}
+.sec-eyebrow-line{display:block;width:1.5rem;height:1.5px;background:var(--blue2);border-radius:1px}
+.sec-title{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.1;margin-bottom:2.8rem;color:var(--w)}
+.sec-title em{font-style:italic;color:var(--blue2);font-weight:400}
+
+/* SERVICES */
+.services-intro{max-width:520px;font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.85;font-weight:300;margin-bottom:3rem}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:rgba(255,255,255,.03);border:1.5px solid rgba(30,110,189,.15);border-radius:12px;padding:2rem 1.6rem;transition:all .35s;cursor:default;position:relative;overflow:hidden}
+.svc-card:hover{border-color:var(--blue2);transform:translateY(-5px);box-shadow:0 15px 40px rgba(30,110,189,.15)}
+.svc-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2));transform:scaleX(0);transform-origin:left;transition:transform .4s;border-radius:3px 3px 0 0}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{font-size:1.8rem;margin-bottom:.85rem;display:block;transition:transform .3s}
+.svc-card:hover .svc-icon{transform:scale(1.15) rotate(5deg)}
+.svc-name{font-family:var(--serif);font-size:1.1rem;font-weight:700;margin-bottom:.5rem;color:var(--w);transition:color .3s}
+.svc-card:hover .svc-name{color:var(--blue2)}
+.svc-desc{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.7;font-weight:300}
+
+/* WHY ROSSY */
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.why-visual{background:rgba(30,110,189,.06);border-radius:16px;border:1.5px solid rgba(30,110,189,.2);min-height:420px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.4);transition:all .4s}
+.why-visual:hover{box-shadow:0 20px 60px rgba(45,106,79,.2);border-color:rgba(45,106,79,.3)}
+.why-visual-inner{text-align:center;padding:2.5rem;z-index:1;position:relative}
+.why-big{font-size:5rem;display:block;margin-bottom:.5rem;animation:float 4s ease-in-out infinite}
+.why-name{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--blue2);margin-bottom:.4rem}
+.why-sub{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.why-div{width:3rem;height:2px;background:var(--blue2);margin:1.25rem auto;border-radius:1px}
+.why-quote{font-family:var(--serif);font-size:1rem;font-style:italic;color:rgba(255,255,255,.4);line-height:1.65;max-width:220px;margin:0 auto}
+.why-stripe{position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2),var(--blue3));border-radius:0 0 14px 14px}
+.why-text{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.88;margin-bottom:1.1rem;font-weight:300}
+.perks{display:flex;flex-direction:column;gap:.7rem;margin-top:2rem}
+.perk{display:flex;align-items:center;gap:.9rem;padding:.7rem 1rem;background:rgba(255,255,255,.03);border:1.5px solid rgba(30,110,189,.15);border-radius:8px;transition:all .3s;cursor:default}
+.perk:hover{border-color:var(--blue2);background:rgba(30,110,189,.08);transform:translateX(5px)}
+.perk-icon{font-size:1rem;flex-shrink:0}
+.perk-text{font-size:.82rem;color:rgba(255,255,255,.65);font-weight:300}
+
+/* AREAS */
+.areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;position:relative;z-index:1}
+.area-card{background:rgba(255,255,255,.03);border:1.5px solid rgba(30,110,189,.15);border-radius:10px;padding:1.4rem 1.2rem;text-align:center;transition:all .35s;cursor:default}
+.area-card:hover{border-color:var(--blue2);transform:translateY(-4px);box-shadow:0 10px 30px rgba(30,110,189,.2)}
+.area-icon{font-size:1.5rem;display:block;margin-bottom:.5rem}
+.area-name{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--w);margin-bottom:.25rem;transition:color .3s}
+.area-card:hover .area-name{color:var(--blue2)}
+.area-dist{font-size:.7rem;color:rgba(255,255,255,.45);font-weight:300}
+
+/* BOOKING */
+.booking-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.booking-info-text{font-size:.92rem;color:rgba(255,255,255,.65);line-height:1.85;font-weight:300;margin-bottom:2rem}
+.bk-steps{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:2rem}
+.bk-step{display:flex;align-items:flex-start;gap:1rem;transition:transform .3s;cursor:default}
+.bk-step:hover{transform:translateX(5px)}
+.bk-step-num{width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.85rem;color:#fff;flex-shrink:0;font-weight:700}
+.bk-step-title{font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--w);margin-bottom:.18rem}
+.bk-step-sub{font-size:.78rem;color:rgba(255,255,255,.55);font-weight:300}
+.bk-note{padding:1.1rem 1.25rem;background:rgba(30,110,189,.08);border:1.5px solid rgba(30,110,189,.3);border-radius:8px;font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.65}
+.bk-note strong{display:block;margin-bottom:.3rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.bk-form{background:rgba(30,110,189,.05);border:1.5px solid rgba(30,110,189,.2);border-radius:12px;padding:2.5rem;box-shadow:0 8px 30px rgba(0,0,0,.3);position:relative;overflow:hidden;transition:all .3s}
+.bk-form:hover{box-shadow:0 15px 50px rgba(45,106,79,.12)}
+.bk-form::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2),var(--blue3));border-radius:3px 3px 0 0}
+.form-title{font-family:var(--serif);font-size:1.5rem;font-weight:700;margin-bottom:.35rem;color:var(--w)}
+.form-sub{font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:1.8rem;font-weight:300}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-field{display:flex;flex-direction:column;gap:.35rem}
+.f-field.full{grid-column:span 2}
+.f-label{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);transition:color .2s;font-weight:500}
+.f-field:focus-within .f-label{color:var(--blue3)}
+.f-input{padding:.72rem 1rem;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);color:var(--w);font-size:.88rem;font-family:var(--sans);outline:none;width:100%;transition:all .3s;border-radius:6px}
+.f-input:focus{border-color:var(--blue2);background:rgba(30,110,189,.06);box-shadow:0 0 0 3px rgba(30,110,189,.12)}
+.f-input::placeholder{color:rgba(255,255,255,.2)}
+select.f-input{appearance:none;cursor:pointer}
+.f-submit{width:100%;padding:.95rem;background:var(--blue);color:var(--w);border:none;font-size:.75rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:all .3s;margin-top:1rem;border-radius:6px}
+.f-submit:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 10px 30px rgba(30,110,189,.35)}
+.f-success{display:none;text-align:center;padding:2.5rem 1.5rem;background:rgba(30,110,189,.06);border:1.5px solid rgba(30,110,189,.2);border-radius:10px}
+.f-success-icon{font-size:2.5rem;display:block;margin-bottom:.75rem}
+.f-success-title{font-family:var(--serif);font-size:1.5rem;font-weight:700;margin-bottom:.5rem;color:var(--blue2)}
+.f-success-sub{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.7}
+
+/* CTA */
+.cta-sec{padding:6rem 3rem;text-align:center;background:var(--blue);position:relative;overflow:hidden}
+.cta-sec::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.cta-sec::after{content:"";position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,.03);pointer-events:none}
+.cta-sec h2{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:700;margin-bottom:1rem;position:relative;z-index:1;color:var(--w)}
+.cta-sec h2 em{font-style:italic;font-weight:400;color:var(--green-light)}
+.cta-sub{color:rgba(255,255,255,.8);font-size:.92rem;max-width:400px;margin:0 auto 2.5rem;font-weight:300;position:relative;z-index:1;line-height:1.8}
+.cta-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+.btn-white{padding:.9rem 2rem;background:#000;color:#fff;border:2px solid #000;font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:all .3s;border-radius:2px}
+.btn-white:hover{background:#222;border-color:var(--gold);color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.btn-outline-white{padding:.9rem 2rem;border:2px solid rgba(255,255,255,.5);color:#fff;background:transparent;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);transition:all .3s;border-radius:2px}
+.btn-outline-white:hover{border-color:#000;background:#000;color:#fff;transform:translateY(-3px)}
+
+/* CONTACT */
+.contact-inner{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start}
+.contact-info-text{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.85;font-weight:300;margin-bottom:1.75rem}
+.contact-rows{margin-bottom:1.75rem}
+.contact-row{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid rgba(30,110,189,.15);font-size:.78rem;transition:all .2s;cursor:default}
+.contact-row:hover{padding-left:.5rem}
+.contact-row-label{color:rgba(255,255,255,.38)}
+.contact-row-val{color:var(--w);font-weight:400}
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.5rem}
+.hour-item{font-size:.75rem;transition:transform .2s;cursor:default}
+.hour-item:hover{transform:translateX(4px)}
+.hour-day{color:rgba(255,255,255,.38);display:block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem}
+.hour-time{color:var(--w);font-weight:400}
+
+/* FOOTER */
+footer{background:var(--blk);padding:3.5rem 3rem 2rem;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2),var(--blue3))}
+.ft-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.ft-logo{font-family:var(--serif);font-size:1.3rem;font-weight:700;cursor:pointer;margin-bottom:.4rem;color:var(--w)}
+.ft-logo span{color:var(--blue2)}
+.ft-tagline{font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.07em}
+.ft-brand-text{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.75;margin-top:1rem;font-weight:300;max-width:200px}
+.ft-col-title{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--blue3);margin-bottom:1.1rem;font-weight:500}
+.ft-col-links{display:flex;flex-direction:column;gap:.6rem}
+.ft-link{font-size:.78rem;color:rgba(255,255,255,.4);cursor:pointer;transition:all .2s;font-weight:300}
+.ft-link:hover{color:var(--blue3);transform:translateX(4px)}
+.ft-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07)}
+.ft-copy{font-size:.68rem;color:rgba(255,255,255,.2)}
+
+@media(max-width:960px){
+  nav{padding:1rem 1.5rem}nav.scrolled{padding:.85rem 1.5rem}
+  .nav-links,.nav-book{display:none}.hamburger{display:flex}
+  .hero{padding:7rem 1.5rem 5rem}
+  .hero-inner{flex-direction:column;gap:3rem}
+  .rossy-card{width:100%;max-width:320px}
+  .hero-scroll{left:1.5rem}
+  .stats-bar{grid-template-columns:repeat(2,1fr);padding:1.5rem}
+  .section{padding:4rem 1.5rem}
+  .svc-grid{grid-template-columns:1fr}
+  .areas-grid{grid-template-columns:repeat(2,1fr)}
+  .why-inner,.booking-inner,.contact-inner{grid-template-columns:1fr}
+  .ft-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .cta-sec{padding:4rem 1.5rem}
+  footer{padding:2.5rem 1.5rem 1.5rem}
+}
+@media(max-width:600px){
+  .hero h1{font-size:2.6rem}.hero-btns{flex-direction:column}
+  .form-grid{grid-template-columns:1fr}.f-field.full{grid-column:span 1}
+  .ft-top{grid-template-columns:1fr}.areas-grid{grid-template-columns:1fr 1fr}
+}
+
+#cursor{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+#cursor-ring{position:fixed;width:34px;height:34px;border:1px solid rgba(201,168,76,.6);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+#cursor.grow{width:44px;height:44px;background:rgba(201,168,76,.15)}
+#cursor-ring.grow{width:60px;height:60px;border-color:var(--gold)}
+#particleCanvas{position:fixed;inset:0;pointer-events:none;z-index:1}
+.glitter-overlay{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
+.glitter-particle{position:absolute;background:var(--gold);animation:glitterFloat linear infinite;opacity:0;pointer-events:none}
+@keyframes glitterFloat{0%{opacity:0;transform:translateY(100vh) rotate(0deg)}15%{opacity:.8}85%{opacity:.4}100%{opacity:0;transform:translateY(-10vh) rotate(720deg)}}
+.ripple-container{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;border:1px solid rgba(201,168,76,.4);animation:rippleAnim 1s ease-out forwards;pointer-events:none}
+@keyframes rippleAnim{0%{transform:scale(0);opacity:.7}100%{transform:scale(5);opacity:0}}
+.scanline{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(transparent,rgba(201,168,76,.04),transparent);pointer-events:none;z-index:50;animation:scanMove 10s linear infinite}
+@keyframes scanMove{0%{top:-5%}100%{top:105%}}
+@keyframes shimmerMove{0%{left:-100%}100%{left:200%}}
+/* Section orbs */
+.sec-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
+/* Number counter animation */
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+/* Hero float diamonds */
+.hero-diamond{position:absolute;background:var(--gold);transform:rotate(45deg);opacity:.25;animation:float linear infinite;pointer-events:none}
+@keyframes textShine{0%,100%{text-shadow:0 0 20px rgba(30,110,189,.2)}50%{text-shadow:0 0 50px rgba(30,110,189,.7),0 0 80px rgba(90,175,245,.3)}}
+.hero h1 em{font-style:italic;color:var(--blue2);font-weight:400;animation:textShine 3s ease-in-out infinite}
+.stat-num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--blue2);display:block;line-height:1}
+/* Hover tilt on cards */
+.svc-card,.area-card,.perk{transform-style:preserve-3d}
+/* Scroll progress bar */
+#scrollProgress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--blue2),var(--blue3));z-index:200;width:0%;transition:width .1s}
+/* Why visual scan */
+.why-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(30,110,189,.5),transparent);animation:scanMove 4s linear infinite}
+@media(max-width:600px){body{cursor:auto}#cursor,#cursor-ring{display:none}}
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="particleCanvas"></canvas>
+<div class="glitter-overlay" id="glitterOverlay"></div>
+<div class="ripple-container" id="rippleContainer"></div>
+<div class="scanline"></div>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMob()">&#10005;</button>
+  <a onclick="navTo('services')">Services</a>
+  <a onclick="navTo('areas')">Areas</a>
+  <a onclick="navTo('about')">About Rossy</a>
+  <a onclick="navTo('booking')">Book Now</a>
+  <a onclick="navTo('contact')">Contact</a>
+</div>
+
+<nav id="navbar">
+  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <img src="data:image/png;base64,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" alt="Coronado Cleaning Services" style="height:48px;width:auto;display:block"/>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="navTo('services')">Services</a></li>
+    <li><a onclick="navTo('areas')">Areas</a></li>
+    <li><a onclick="navTo('about')">About</a></li>
+    <li><a onclick="navTo('contact')">Contact</a></li>
+  </ul>
+  <button class="nav-book" onclick="navTo('booking')">Book a Clean</button>
+  <button class="hamburger" onclick="document.getElementById('mobMenu').classList.add('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+
+  <div class="hero-diamond" style="left:12%;top:22%;width:8px;height:8px;animation-duration:7s"></div>
+  <div class="hero-diamond" style="left:75%;top:18%;width:6px;height:6px;animation-duration:9s;animation-delay:1s;opacity:.2"></div>
+  <div class="hero-diamond" style="left:88%;top:60%;width:7px;height:7px;animation-duration:6s;animation-delay:2s"></div>
+  <div class="hero-diamond" style="left:35%;top:75%;width:5px;height:5px;animation-duration:8s;animation-delay:.5s;opacity:.15"></div>
+  <div class="hero-circles"><div class="hero-circle-1"></div><div class="hero-circle-2"></div></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag"><span class="hero-tag-line"></span>Addison, TX &middot; 7 Days a Week</div>
+      <h1>A <em>Spotless</em><br><span>Home You'll</span><span>Love Coming</span><span>Back To</span></h1>
+      <p class="hero-sub">Professional, reliable, and thorough cleaning services by Rossy &mdash; trusted by families across Addison, Frisco, Plano, and Dallas for years.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="navTo('booking')">Book a Clean</button>
+        <button class="btn-outline-green" onclick="navTo('services')">See Services</button>
+      </div>
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-txt">Available 7 Days &middot; Up to 40 Min Drive &middot; Fully Trusted</span>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="rossy-card">
+        <span class="rossy-card-tag">Your Cleaning Pro</span>
+        <span class="rossy-emoji">&#129529;</span>
+        <div class="rossy-name">Rossy</div>
+        <div class="rossy-title">Professional Home Cleaning &middot; Addison, TX</div>
+        <div class="rossy-div"></div>
+        <div class="rossy-stats">
+          <div><span class="rossy-num">7</span><span class="rossy-lbl">Days/Week</span></div>
+          <div><span class="rossy-num">5&#9733;</span><span class="rossy-lbl">Rated</span></div>
+          <div><span class="rossy-num">40</span><span class="rossy-lbl">Mile Radius</span></div>
+          <div><span class="rossy-num">100%</span><span class="rossy-lbl">Reliable</span></div>
+        </div>
+        <div class="rossy-areas">
+          <span class="rossy-areas-label">&#128205; Areas Served</span>
+          <div class="rossy-areas-list">Addison &middot; Frisco &middot; Plano<br>Dallas &middot; Carrollton &middot; Allen</div>
+      </div>
+      <div style="margin-top:.85rem;font-size:.75rem;color:rgba(255,255,255,.7);text-align:center"><a href="tel:9723706682" style="color:var(--gold);font-weight:500">&#128222; (972) 370-6682</a>
+        </div>
+        <div class="rossy-rating">
+          <span class="rossy-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rossy-rtxt">Trusted by families for years</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span class="scroll-txt">Scroll to explore</span></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">House Cleaning<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Laundry<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Deep Cleaning<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Move-In / Move-Out<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Kitchen &amp; Bathrooms<span class="marquee-sep"></span></span>
+    <span class="marquee-item">7 Days a Week<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Addison TX<span class="marquee-sep"></span></span>
+    <span class="marquee-item">House Cleaning<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Laundry<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Deep Cleaning<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Move-In / Move-Out<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Kitchen &amp; Bathrooms<span class="marquee-sep"></span></span>
+    <span class="marquee-item">7 Days a Week<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Addison TX<span class="marquee-sep"></span></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat reveal s1"><span class="stat-num">7</span><span class="stat-lbl">Days a week</span></div>
+  <div class="stat reveal s2"><span class="stat-num">5&#9733;</span><span class="stat-lbl">Client rating</span></div>
+  <div class="stat reveal s3"><span class="stat-num">40mi</span><span class="stat-lbl">Service radius</span></div>
+  <div class="stat reveal s4"><span class="stat-num">100%</span><span class="stat-lbl">Satisfaction</span></div>
+</div>
+
+<!-- SERVICES -->
+<section class="section light" id="services">
+  <div class="sec-orb" style="width:400px;height:400px;background:rgba(30,110,189,.07);top:-100px;right:-100px"></div>
+  <div class="sec-orb" style="width:300px;height:300px;background:rgba(30,110,189,.05);bottom:-80px;left:-80px"></div>
+  <div class="sec-eyebrow reveal"><span class="sec-eyebrow-line"></span>What Rossy Does</div>
+  <div class="sec-title reveal">Every Service You <em>Need</em></div>
+  <p class="services-intro reveal">From a quick weekly tidy to a full deep clean &mdash; Rossy handles it all with care, attention to detail, and a standard your family can count on every single time.</p>
+  <div class="svc-grid">
+    <div class="svc-card reveal s1"><span class="svc-icon">&#127968;</span><div class="svc-name">Home Cleaning</div><p class="svc-desc">Full house cleaning including all rooms, floors, surfaces, and common areas. Regular or one-time &mdash; always thorough.</p></div>
+    <div class="svc-card reveal s2"><span class="svc-icon">&#129531;</span><div class="svc-name">Laundry Service</div><p class="svc-desc">Washing, drying, and folding your laundry so you come home to fresh, clean clothes without lifting a finger.</p></div>
+    <div class="svc-card reveal s3"><span class="svc-icon">&#10024;</span><div class="svc-name">Deep Cleaning</div><p class="svc-desc">Top to bottom scrubbing &mdash; inside cabinets, baseboards, behind appliances. Perfect for seasonal resets or move-ins.</p></div>
+    <div class="svc-card reveal s4"><span class="svc-icon">&#127859;</span><div class="svc-name">Kitchen Cleaning</div><p class="svc-desc">Stovetops, counters, sinks, appliances, and cabinets cleaned until they shine. The heart of your home, spotless.</p></div>
+    <div class="svc-card reveal s5"><span class="svc-icon">&#128704;</span><div class="svc-name">Bathroom Cleaning</div><p class="svc-desc">Toilets, showers, tubs, sinks, mirrors, and tiles &mdash; completely sanitized and sparkling clean every visit.</p></div>
+    <div class="svc-card reveal s6"><span class="svc-icon">&#128218;</span><div class="svc-name">Custom Requests</div><p class="svc-desc">Need something specific? As long as it's cleaning-related, just ask. Rossy is flexible and happy to accommodate.</p></div>
+  </div>
+</section>
+
+<!-- ABOUT ROSSY -->
+<section class="section soft" id="about">
+  <div class="sec-orb" style="width:500px;height:500px;background:rgba(30,110,189,.06);top:-150px;right:-150px"></div>
+  <div class="why-inner">
+    <div class="reveal-left">
+      <div class="why-visual">
+        <div class="why-visual-inner">
+          <span class="why-big">&#129529;</span>
+          <div class="why-name">Rossy</div>
+          <div class="why-sub">Addison, TX &middot; Professional Cleaner</div>
+          <div class="why-div"></div>
+          <div class="why-quote">"I treat every home like it's my own. Clean home, happy family &mdash; that's my goal every single time."</div>
+        </div>
+        <div class="why-scan"></div>
+        <div class="why-stripe"></div>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <div class="sec-eyebrow"><span class="sec-eyebrow-line"></span>Why Choose Rossy</div>
+      <div class="sec-title" style="margin-bottom:1.25rem">The <em>Personal Touch</em><br>No Agency Can Match</div>
+      <p class="why-text">When you hire Rossy, you're not getting a random person from an agency. You're getting someone who has been doing this for years, who takes pride in her work, and who your family can actually trust in your home.</p>
+      <p class="why-text">She works 7 days a week not because she has to &mdash; but because she genuinely cares about the people she works for. That kind of dedication is rare, and her clients know it.</p>
+      <div class="perks">
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Same person every visit &mdash; no strangers in your home</span></div>
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Available 7 days a week at your convenience</span></div>
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Reliable, punctual, and always communicates clearly</span></div>
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Years of experience, trusted by long-term clients</span></div>
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Affordable rates, flexible scheduling, no contracts</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="section light" id="areas">
+  <div class="sec-orb" style="width:400px;height:400px;background:rgba(30,110,189,.05);bottom:-100px;left:-100px"></div>
+  <div class="sec-eyebrow reveal"><span class="sec-eyebrow-line"></span>Service Coverage</div>
+  <div class="sec-title reveal">Areas <em>Served</em></div>
+  <div class="areas-grid">
+    <div class="area-card reveal s1"><span class="area-icon">&#127968;</span><div class="area-name">Addison</div><div class="area-dist">Home base &middot; All areas</div></div>
+    <div class="area-card reveal s2"><span class="area-icon">&#127963;</span><div class="area-name">Frisco</div><div class="area-dist">~30 min drive</div></div>
+    <div class="area-card reveal s3"><span class="area-icon">&#127961;</span><div class="area-name">Plano</div><div class="area-dist">~20 min drive</div></div>
+    <div class="area-card reveal s4"><span class="area-icon">&#127751;</span><div class="area-name">Dallas</div><div class="area-dist">~25 min drive</div></div>
+    <div class="area-card reveal s1"><span class="area-icon">&#127960;</span><div class="area-name">Carrollton</div><div class="area-dist">~15 min drive</div></div>
+    <div class="area-card reveal s2"><span class="area-icon">&#127970;</span><div class="area-name">Allen</div><div class="area-dist">~30 min drive</div></div>
+    <div class="area-card reveal s3"><span class="area-icon">&#127966;</span><div class="area-name">Richardson</div><div class="area-dist">~20 min drive</div></div>
+    <div class="area-card reveal s4"><span class="area-icon">&#128205;</span><div class="area-name">And More</div><div class="area-dist">Within 40 min of Addison</div></div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="section soft" id="booking">
+  <div class="sec-orb" style="width:500px;height:500px;background:rgba(30,110,189,.07);top:-200px;right:-200px"></div>
+  <div class="sec-eyebrow reveal"><span class="sec-eyebrow-line"></span>Get Started</div>
+  <div class="sec-title reveal"><em>Book</em> Your Cleaning</div>
+  <div class="booking-inner">
+    <div class="reveal-left">
+      <p class="booking-info-text">Ready for a clean home without the hassle? Fill out the form and Rossy will reach out to confirm your schedule and discuss pricing.</p>
+      <div class="bk-steps">
+        <div class="bk-step"><div class="bk-step-num">1</div><div><div class="bk-step-title">Send a Request</div><div class="bk-step-sub">Fill out the form with your info and preferred date</div></div></div>
+        <div class="bk-step"><div class="bk-step-num">2</div><div><div class="bk-step-title">Rossy Confirms</div><div class="bk-step-sub">She'll reach out to confirm and go over details</div></div></div>
+        <div class="bk-step"><div class="bk-step-num">3</div><div><div class="bk-step-title">Come Home to Clean</div><div class="bk-step-sub">Sit back and enjoy your spotless home!</div></div></div>
+      </div>
+      <div class="bk-note">
+        <strong>&#9888; Please Note</strong>
+        Rossy works hard to maintain high standards for every client. Please be respectful, communicative, and flexible with scheduling. Clients who are a good fit will enjoy a long-term, reliable relationship.
+      </div>
+    </div>
+    <div class="reveal-right">
+      <form class="bk-form" id="bookForm" onsubmit="handleBook(event)">
+        <div class="form-title">Request a Cleaning</div>
+        <p class="form-sub">Rossy will get back to you to confirm availability and pricing.</p>
+        <div class="form-grid">
+          <div class="f-field"><label class="f-label">First Name *</label><input class="f-input" placeholder="Your first name" required/></div>
+          <div class="f-field"><label class="f-label">Last Name *</label><input class="f-input" placeholder="Your last name" required/></div>
+          <div class="f-field"><label class="f-label">Phone *</label><input class="f-input" type="tel" placeholder="(214) 555-0000" required/></div>
+          <div class="f-field"><label class="f-label">City / Area *</label><input class="f-input" placeholder="e.g. Frisco, Plano..." required/></div>
+          <div class="f-field full"><label class="f-label">Service Needed *</label>
+            <select class="f-input" required>
+              <option value="">Select a service...</option>
+              <option>Regular House Cleaning</option>
+              <option>Deep Cleaning</option>
+              <option>Laundry Service</option>
+              <option>Kitchen Deep Clean</option>
+              <option>Bathroom Cleaning</option>
+              <option>Move-In / Move-Out Clean</option>
+              <option>Custom / Multiple Services</option>
+            </select>
+          </div>
+          <div class="f-field"><label class="f-label">Preferred Date</label><input class="f-input" type="date"/></div>
+          <div class="f-field"><label class="f-label">Home Size</label>
+            <select class="f-input"><option value="">Select size...</option><option>Studio / 1 Bed</option><option>2 Bedrooms</option><option>3 Bedrooms</option><option>4+ Bedrooms</option></select>
+          </div>
+          <div class="f-field full"><label class="f-label">Anything else we should know?</label><textarea class="f-input" placeholder="Special instructions, pets, access info, etc." style="height:90px"></textarea></div>
+        </div>
+        <button type="submit" class="f-submit">Send Booking Request &#8594;</button>
+      </form>
+      <div class="f-success" id="bookSuccess">
+        <span class="f-success-icon">&#127968;</span>
+        <div class="f-success-title">Request Received!</div>
+        <p class="f-success-sub">Thank you! Rossy will reach out shortly to confirm your cleaning and go over any details. Can't wait to make your home shine!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <h2 class="reveal">Ready for a <em>Spotless Home?</em></h2>
+  <p class="cta-sub reveal">Trusted, reliable, and thorough. Serving Addison and surrounding areas 7 days a week. Book today and come home to clean.</p>
+  <div class="cta-btns reveal">
+    <button class="btn-white" onclick="navTo('booking')">Book a Cleaning</button>
+    <button class="btn-outline-white" onclick="window.location.href='tel:9723706682'">(972) 370-6682</button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section light" id="contact">
+  <div class="sec-eyebrow reveal"><span class="sec-eyebrow-line"></span>Reach Out</div>
+  <div class="sec-title reveal"><em>Get In</em> Touch</div>
+  <div class="contact-inner">
+    <div class="reveal-left">
+      <p class="contact-info-text">Based in Addison, TX. Rossy serves the whole North Dallas area within a 40-minute drive. Questions about availability, pricing, or services? Reach out anytime!</p>
+      <div class="contact-rows">
+        <div class="contact-row"><span class="contact-row-label">Phone</span><span class="contact-row-val" style="color:var(--blue3)"><a href="tel:9723706682" style="color:var(--gold)">(972) 370-6682</a></span></div>
+        <div class="contact-row"><span class="contact-row-label">Based In</span><span class="contact-row-val">Addison, Texas</span></div>
+        <div class="contact-row"><span class="contact-row-label">Service Area</span><span class="contact-row-val">Up to 40 min from Addison</span></div>
+        <div class="contact-row"><span class="contact-row-label">Availability</span><span class="contact-row-val" style="color:var(--blue3)">7 Days a Week</span></div>
+        <div class="contact-row"><span class="contact-row-label">Response Time</span><span class="contact-row-val">Within a few hours</span></div>
+      </div>
+      <p style="font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:.85rem;font-weight:500">Availability</p>
+      <div class="hours-grid">
+        <div class="hour-item"><span class="hour-day">Monday &ndash; Friday</span><span class="hour-time">Flexible Hours</span></div>
+        <div class="hour-item"><span class="hour-day">Saturday</span><span class="hour-time">Available</span></div>
+        <div class="hour-item"><span class="hour-day">Sunday</span><span class="hour-time">Available</span></div>
+        <div class="hour-item"><span class="hour-day">Holidays</span><span class="hour-time">By Request</span></div>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <form class="bk-form" id="contactForm" onsubmit="handleContact(event)">
+        <div class="form-title">Send a Message</div>
+        <p class="form-sub">Questions about pricing, availability, or services? Rossy will reply fast.</p>
+        <div class="form-grid">
+          <div class="f-field"><label class="f-label">Name *</label><input class="f-input" placeholder="Your name" required/></div>
+          <div class="f-field"><label class="f-label">Phone *</label><input class="f-input" placeholder="(214) 555-0000" required/></div>
+          <div class="f-field full"><label class="f-label">Message *</label><textarea class="f-input" placeholder="What can Rossy help you with?" style="height:130px" required></textarea></div>
+        </div>
+        <button type="submit" class="f-submit">Send Message &#8594;</button>
+      </form>
+      <div class="f-success" id="contactSuccess">
+        <span class="f-success-icon">&#127881;</span>
+        <div class="f-success-title">Message Sent!</div>
+        <p class="f-success-sub">Thanks for reaching out! Rossy will get back to you very soon to help you out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-top">
+    <div><div class="ft-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Rossy's <span>Clean Co.</span></div><div class="ft-tagline">Addison, TX &middot; Trusted Home Cleaning</div><p class="ft-brand-text">Professional, reliable cleaning services serving North Dallas 7 days a week.</p></div>
+    <div><div class="ft-col-title">Services</div><div class="ft-col-links"><span class="ft-link" onclick="navTo('services')">House Cleaning</span><span class="ft-link" onclick="navTo('services')">Laundry</span><span class="ft-link" onclick="navTo('services')">Deep Cleaning</span><span class="ft-link" onclick="navTo('services')">Custom Requests</span></div></div>
+    <div><div class="ft-col-title">Quick Links</div><div class="ft-col-links"><span class="ft-link" onclick="navTo('booking')">Book a Clean</span><span class="ft-link" onclick="navTo('about')">About Rossy</span><span class="ft-link" onclick="navTo('areas')">Areas Served</span><span class="ft-link" onclick="navTo('contact')">Contact</span></div></div>
+    <div><div class="ft-col-title">Call Us</div><div class="ft-col-links"><span class="ft-link"><a href="tel:9723706682" style="color:inherit">(972) 370-6682</a></span><span class="ft-link">Addison, Texas</span><span class="ft-link">7 Days a Week</span</div></div>
+  </div>
+  <div class="ft-bottom"><span class="ft-copy">&copy; 2025 Coronado Cleaning All rights reserved. &middot; Addison, Texas</span><span class="ft-copy">Made with &#10084; by her son &middot; Coronado Cleaning Services</span></div>
+</footer>
+
+<script>
+// CURSOR
+var cur=document.getElementById("cursor"),ring=document.getElementById("cursor-ring");
+if(cur){
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+"px";cur.style.top=my+"px"});
+  (function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(loop)})();
+  document.querySelectorAll("button,a,.svc-card,.area-card,.perk,.rossy-card,.bk-form").forEach(function(el){
+    el.addEventListener("mouseenter",function(){cur.classList.add("grow");ring.classList.add("grow")});
+    el.addEventListener("mouseleave",function(){cur.classList.remove("grow");ring.classList.remove("grow")});
+  });
+}
+
+// CLICK RIPPLE
+document.addEventListener("click",function(e){
+  var r=document.createElement("div");r.className="ripple";
+  r.style.cssText="left:"+(e.clientX-20)+"px;top:"+(e.clientY-20)+"px;width:40px;height:40px";
+  document.getElementById("rippleContainer").appendChild(r);
+  setTimeout(function(){r.remove()},1000);
+});
+
+// PARTICLES
+var canvas=document.getElementById("particleCanvas"),ctx=canvas.getContext("2d");
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+resize();window.addEventListener("resize",resize);
+var pts=[];
+for(var i=0;i<50;i++)pts.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,s:Math.random()*1.4+.3,o:Math.random()*.3+.08,p:Math.random()*Math.PI*2});
+(function animPts(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  pts.forEach(function(p){
+    p.x+=p.vx;p.y+=p.vy;p.p+=.02;
+    if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;
+    if(p.y<0)p.y=canvas.height;if(p.y>canvas.height)p.y=0;
+    var op=p.o*(0.5+0.5*Math.sin(p.p));
+    ctx.beginPath();ctx.arc(p.x,p.y,p.s,0,Math.PI*2);
+    ctx.fillStyle="rgba(201,168,76,"+op+")";ctx.fill();
+  });
+  for(var a=0;a<pts.length;a++)for(var b=a+1;b<pts.length;b++){
+    var dx=pts[a].x-pts[b].x,dy=pts[a].y-pts[b].y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<100){ctx.beginPath();ctx.moveTo(pts[a].x,pts[a].y);ctx.lineTo(pts[b].x,pts[b].y);ctx.strokeStyle="rgba(201,168,76,"+(0.05*(1-d/100))+")";ctx.lineWidth=.4;ctx.stroke()}
+  }
+  requestAnimationFrame(animPts);
+})();
+
+// GLITTER
+var gl=document.getElementById("glitterOverlay");
+function spawnG(){
+  var g=document.createElement("div");g.className="glitter-particle";
+  var sz=Math.random()*3+1;g.style.width=sz+"px";g.style.height=sz+"px";
+  g.style.left=Math.random()*100+"%";
+  var dur=Math.random()*8+5;g.style.animationDuration=dur+"s";g.style.animationDelay=Math.random()*3+"s";
+  g.style.borderRadius=Math.random()>.5?"50%":"2px";
+  if(Math.random()>.5)g.style.background="#E8C97A";
+  else if(Math.random()>.3)g.style.background="rgba(255,255,255,.6)";
+  gl.appendChild(g);setTimeout(function(){g.remove()},(dur+3)*1000);
+}
+setInterval(spawnG,350);for(var k=0;k<15;k++)setTimeout(spawnG,k*100);
+
+// MOUSE TRAIL
+var trailT=0;
+document.addEventListener("mousemove",function(e){
+  if(Date.now()-trailT<35)return;trailT=Date.now();
+  var d=document.createElement("div");
+  var sz=Math.random()*3+1;
+  d.style.cssText="position:fixed;left:"+(e.clientX-sz/2)+"px;top:"+(e.clientY-sz/2)+"px;width:"+sz+"px;height:"+sz+"px;background:rgba(201,168,76,.35);border-radius:50%;pointer-events:none;z-index:9997;transition:opacity .4s,transform .4s";
+  document.body.appendChild(d);
+  setTimeout(function(){d.style.opacity="0";d.style.transform="scale(2)";setTimeout(function(){d.remove()},400)},60);
+});
+
+// SCROLL REVEAL
+var obs=new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add("visible")})},{threshold:.1});
+document.querySelectorAll(".reveal,.reveal-left,.reveal-right").forEach(function(el){obs.observe(el)});
+
+// SCROLL PROGRESS BAR
+window.addEventListener("scroll",function(){
+  var sp=document.getElementById("scrollProgress");
+  var pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  if(sp)sp.style.width=pct+"%";
+  document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>40);
+});
+
+// PARALLAX
+window.addEventListener("scroll",function(){
+  var sy=window.scrollY;
+  var orbs=document.querySelectorAll(".sec-orb");
+  orbs.forEach(function(o,i){o.style.transform="translateY("+(sy*(i%2===0?.06:.04))+"px)"});
+  var hero=document.querySelector(".hero-circles");
+  if(hero)hero.style.transform="translateY("+(sy*.08)+"px)";
+});
+
+// TILT
+document.querySelectorAll(".svc-card,.area-card,.perk,.rossy-card").forEach(function(c){
+  c.addEventListener("mousemove",function(e){
+    var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform="translateY(-5px) perspective(600px) rotateX("+(y*-4)+"deg) rotateY("+(x*4)+"deg)";
+  });
+  c.addEventListener("mouseleave",function(){c.style.transform=""});
+});
+
+// NAV
+function navTo(id){closeMob();var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth"})}
+function closeMob(){document.getElementById("mobMenu").classList.remove("open")}
+document.getElementById("mobMenu").addEventListener("click",function(e){if(e.target===this)closeMob()});
+
+// FORMS
+function handleBook(e){e.preventDefault();document.getElementById("bookForm").style.display="none";document.getElementById("bookSuccess").style.display="block"}
+function handleContact(e){e.preventDefault();document.getElementById("contactForm").style.display="none";document.getElementById("contactSuccess").style.display="block"}
+
+// COUNTER ANIMATION on stats
+var statsObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.style.animation="countUp .6s ease both";
+      statsObs.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll(".stat-num").forEach(function(el){statsObs.observe(el)});
+</script>
+</body>
+</html>
