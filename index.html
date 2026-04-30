@@ -246,7 +246,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
   nav{padding:1rem 1.5rem}nav.scrolled{padding:.85rem 1.5rem}
   .nav-links,.nav-book{display:none}.hamburger{display:flex}
   .hero{padding:7rem 1.5rem 5rem}
-  .hero-inner{flex-direction:column;gap:3rem}
+  .hero-inner{flex-direction:column;gap:2.5rem}
+  .hero-phone-wrap{width:100%;display:flex;justify-content:center}
+  .phone-mockup{width:180px;height:380px}
   .rossy-card{width:100%;max-width:320px}
   .hero-scroll{left:1.5rem}
   .stats-bar{grid-template-columns:repeat(2,1fr);padding:1.5rem}
@@ -294,6 +296,22 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
 /* Why visual scan */
 .why-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(30,110,189,.5),transparent);animation:scanMove 4s linear infinite}
 @media(max-width:600px){body{cursor:auto}#cursor,#cursor-ring{display:none}}
+
+/* ── PHONE MOCKUP ── */
+.hero-phone-wrap{flex-shrink:0;animation:fadeUp .9s .4s both}
+.phone-mockup-outer{position:relative;transform:rotate(-2deg);animation:phoneFloat 5s ease-in-out infinite}
+@keyframes phoneFloat{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-12px)}}
+.phone-mockup{width:220px;height:460px;position:relative;background:#0a0a0a;border-radius:38px;border:3px solid #222;box-shadow:0 0 0 1px #111,0 30px 80px rgba(0,0,0,.7),0 0 60px rgba(30,110,189,.15),inset 0 0 0 1px #2a2a2a;overflow:hidden}
+.phone-mockup::before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:70px;height:5px;background:#1a1a1a;border-radius:3px;z-index:10}
+.phone-mockup::after{content:"";position:absolute;inset:0;border-radius:35px;background:linear-gradient(135deg,rgba(255,255,255,.07) 0%,transparent 50%);pointer-events:none;z-index:10}
+.phone-video{width:100%;height:100%;object-fit:cover;border-radius:35px;display:block}
+.phone-ui-bar{position:absolute;bottom:0;left:0;right:0;padding:.75rem 1rem .6rem;background:linear-gradient(transparent,rgba(0,0,0,.88));z-index:5;border-radius:0 0 35px 35px}
+.phone-ui-handle{width:45px;height:3px;background:rgba(255,255,255,.25);border-radius:2px;margin:0 auto .45rem}
+.phone-ui-text{font-size:.58rem;color:rgba(255,255,255,.6);text-align:center;letter-spacing:.1em;text-transform:uppercase}
+.phone-ui-text span{color:var(--blue2)}
+.phone-glow{position:absolute;inset:-20px;background:radial-gradient(ellipse at center,rgba(30,110,189,.2) 0%,transparent 70%);pointer-events:none;z-index:-1;animation:phoneGlow 3s ease-in-out infinite}
+@keyframes phoneGlow{0%,100%{opacity:.6}50%{opacity:1}}
+.phone-reel-badge{position:absolute;top:-10px;right:-10px;background:var(--blue);color:#fff;font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .65rem;border-radius:20px;z-index:20;box-shadow:0 4px 20px rgba(30,110,189,.5)}
 </style>
 </head>
 <body>
@@ -344,7 +362,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
     <div class="hero-content">
       <div class="hero-tag"><span class="hero-tag-line"></span>Addison, TX &middot; 7 Days a Week</div>
       <h1>A <em>Spotless</em><br><span>Home You'll</span><span>Love Coming</span><span>Back To</span></h1>
-      <p class="hero-sub">Professional, reliable, and thorough cleaning services by Rossy &mdash; trusted by families across Addison, Frisco, Plano, and Dallas for years.</p>
+      <p class="hero-sub">Professional, reliable, and thorough cleaning services by Rossy &mdash; 17 years of experience trusted by families across Addison, Frisco, Plano, Highland Park, and Dallas.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="navTo('booking')">Book a Clean</button>
         <button class="btn-outline-green" onclick="navTo('services')">See Services</button>
@@ -354,6 +372,24 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
         <span class="badge-txt">Available 7 Days &middot; Up to 40 Min Drive &middot; Fully Trusted</span>
       </div>
     </div>
+
+    <!-- PHONE MOCKUP -->
+    <div class="hero-phone-wrap">
+      <div class="phone-glow"></div>
+      <div class="phone-mockup-outer">
+        <div class="phone-reel-badge">▶ Real Work</div>
+        <div class="phone-mockup">
+          <video class="phone-video" autoplay muted loop playsinline preload="auto" id="heroVideo">
+            <source src="https://res.cloudinary.com/dycutbccb/video/upload/ac_none/v1777512432/snaptik_7551998564877077790_v3_abt7rd.mp4" type="video/mp4">
+          </video>
+          <div class="phone-ui-bar">
+            <div class="phone-ui-handle"></div>
+            <div class="phone-ui-text"><span>Coronado Cleaning</span> · Real transformation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="hero-card-wrap">
       <div class="rossy-card">
         <span class="rossy-card-tag">Your Cleaning Pro</span>
@@ -363,13 +399,13 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
         <div class="rossy-div"></div>
         <div class="rossy-stats">
           <div><span class="rossy-num">7</span><span class="rossy-lbl">Days/Week</span></div>
-          <div><span class="rossy-num">5&#9733;</span><span class="rossy-lbl">Rated</span></div>
+          <div><span class="rossy-num">17+</span><span class="rossy-lbl">Yrs Exp.</span></div>
           <div><span class="rossy-num">40</span><span class="rossy-lbl">Mile Radius</span></div>
           <div><span class="rossy-num">100%</span><span class="rossy-lbl">Reliable</span></div>
         </div>
         <div class="rossy-areas">
           <span class="rossy-areas-label">&#128205; Areas Served</span>
-          <div class="rossy-areas-list">Addison &middot; Frisco &middot; Plano<br>Dallas &middot; Carrollton &middot; Allen</div>
+          <div class="rossy-areas-list">Addison &middot; Frisco &middot; Plano<br>Dallas &middot; Carrollton &middot; Highland Park</div>
       </div>
       <div style="margin-top:.85rem;font-size:.75rem;color:rgba(255,255,255,.7);text-align:center"><a href="tel:9723706682" style="color:var(--gold);font-weight:500">&#128222; (972) 370-6682</a>
         </div>
@@ -390,6 +426,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
     <span class="marquee-item">Laundry<span class="marquee-sep"></span></span>
     <span class="marquee-item">Deep Cleaning<span class="marquee-sep"></span></span>
     <span class="marquee-item">Move-In / Move-Out<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Highland Park<span class="marquee-sep"></span></span>
     <span class="marquee-item">Kitchen &amp; Bathrooms<span class="marquee-sep"></span></span>
     <span class="marquee-item">7 Days a Week<span class="marquee-sep"></span></span>
     <span class="marquee-item">Addison TX<span class="marquee-sep"></span></span>
@@ -397,6 +434,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
     <span class="marquee-item">Laundry<span class="marquee-sep"></span></span>
     <span class="marquee-item">Deep Cleaning<span class="marquee-sep"></span></span>
     <span class="marquee-item">Move-In / Move-Out<span class="marquee-sep"></span></span>
+    <span class="marquee-item">Highland Park<span class="marquee-sep"></span></span>
     <span class="marquee-item">Kitchen &amp; Bathrooms<span class="marquee-sep"></span></span>
     <span class="marquee-item">7 Days a Week<span class="marquee-sep"></span></span>
     <span class="marquee-item">Addison TX<span class="marquee-sep"></span></span>
@@ -406,7 +444,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stat reveal s1"><span class="stat-num">7</span><span class="stat-lbl">Days a week</span></div>
-  <div class="stat reveal s2"><span class="stat-num">5&#9733;</span><span class="stat-lbl">Client rating</span></div>
+  <div class="stat reveal s2"><span class="stat-num">17+</span><span class="stat-lbl">Years experience</span></div>
   <div class="stat reveal s3"><span class="stat-num">40mi</span><span class="stat-lbl">Service radius</span></div>
   <div class="stat reveal s4"><span class="stat-num">100%</span><span class="stat-lbl">Satisfaction</span></div>
 </div>
@@ -422,9 +460,9 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
     <div class="svc-card reveal s1"><span class="svc-icon">&#127968;</span><div class="svc-name">Home Cleaning</div><p class="svc-desc">Full house cleaning including all rooms, floors, surfaces, and common areas. Regular or one-time &mdash; always thorough.</p></div>
     <div class="svc-card reveal s2"><span class="svc-icon">&#129531;</span><div class="svc-name">Laundry Service</div><p class="svc-desc">Washing, drying, and folding your laundry so you come home to fresh, clean clothes without lifting a finger.</p></div>
     <div class="svc-card reveal s3"><span class="svc-icon">&#10024;</span><div class="svc-name">Deep Cleaning</div><p class="svc-desc">Top to bottom scrubbing &mdash; inside cabinets, baseboards, behind appliances. Perfect for seasonal resets or move-ins.</p></div>
-    <div class="svc-card reveal s4"><span class="svc-icon">&#127859;</span><div class="svc-name">Kitchen Cleaning</div><p class="svc-desc">Stovetops, counters, sinks, appliances, and cabinets cleaned until they shine. The heart of your home, spotless.</p></div>
-    <div class="svc-card reveal s5"><span class="svc-icon">&#128704;</span><div class="svc-name">Bathroom Cleaning</div><p class="svc-desc">Toilets, showers, tubs, sinks, mirrors, and tiles &mdash; completely sanitized and sparkling clean every visit.</p></div>
-    <div class="svc-card reveal s6"><span class="svc-icon">&#128218;</span><div class="svc-name">Custom Requests</div><p class="svc-desc">Need something specific? As long as it's cleaning-related, just ask. Rossy is flexible and happy to accommodate.</p></div>
+    <div class="svc-card reveal s4"><span class="svc-icon">&#127859;</span><div class="svc-name">Kitchen &amp; Bathrooms</div><p class="svc-desc">Stovetops, counters, sinks, toilets, showers, tiles &mdash; every surface scrubbed and sanitized until it sparkles.</p></div>
+    <div class="svc-card reveal s5"><span class="svc-icon">&#128666;</span><div class="svc-name">Move-In / Move-Out</div><p class="svc-desc">Moving is stressful enough. Rossy does a full deep clean of your old place or new home so you can focus on settling in.</p></div>
+    <div class="svc-card reveal s6"><span class="svc-icon">&#128021;</span><div class="svc-name">Pet &amp; Little Extras</div><p class="svc-desc">Taking the dog outside, switching laundry, light organizing &mdash; small things that make a big difference in your day.</p></div>
   </div>
 </section>
 
@@ -449,13 +487,15 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
       <div class="sec-eyebrow"><span class="sec-eyebrow-line"></span>Why Choose Rossy</div>
       <div class="sec-title" style="margin-bottom:1.25rem">The <em>Personal Touch</em><br>No Agency Can Match</div>
       <p class="why-text">When you hire Rossy, you're not getting a random person from an agency. You're getting someone who has been doing this for years, who takes pride in her work, and who your family can actually trust in your home.</p>
-      <p class="why-text">She works 7 days a week not because she has to &mdash; but because she genuinely cares about the people she works for. That kind of dedication is rare, and her clients know it.</p>
+      <p class="why-text">With 17 years of experience, she works 7 days a week not because she has to &mdash; but because she genuinely cares about the people she works for. That kind of dedication is rare, and her clients know it.</p>
       <div class="perks">
         <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Same person every visit &mdash; no strangers in your home</span></div>
         <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Available 7 days a week at your convenience</span></div>
         <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Reliable, punctual, and always communicates clearly</span></div>
-        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Years of experience, trusted by long-term clients</span></div>
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">17 years of experience &mdash; trusted by long-term clients</span></div>
         <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Affordable rates, flexible scheduling, no contracts</span></div>
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Move-in &amp; move-out deep cleans available</span></div>
+        <div class="perk"><span class="perk-icon">&#9989;</span><span class="perk-text">Little extras &mdash; takes dogs out, switches laundry &amp; more</span></div>
       </div>
     </div>
   </div>
@@ -472,7 +512,7 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
     <div class="area-card reveal s3"><span class="area-icon">&#127961;</span><div class="area-name">Plano</div><div class="area-dist">~20 min drive</div></div>
     <div class="area-card reveal s4"><span class="area-icon">&#127751;</span><div class="area-name">Dallas</div><div class="area-dist">~25 min drive</div></div>
     <div class="area-card reveal s1"><span class="area-icon">&#127960;</span><div class="area-name">Carrollton</div><div class="area-dist">~15 min drive</div></div>
-    <div class="area-card reveal s2"><span class="area-icon">&#127970;</span><div class="area-name">Allen</div><div class="area-dist">~30 min drive</div></div>
+    <div class="area-card reveal s2"><span class="area-icon">&#127963;</span><div class="area-name">Highland Park</div><div class="area-dist">~20 min drive</div></div>
     <div class="area-card reveal s3"><span class="area-icon">&#127966;</span><div class="area-name">Richardson</div><div class="area-dist">~20 min drive</div></div>
     <div class="area-card reveal s4"><span class="area-icon">&#128205;</span><div class="area-name">And More</div><div class="area-dist">Within 40 min of Addison</div></div>
   </div>
@@ -513,7 +553,8 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
               <option>Laundry Service</option>
               <option>Kitchen Deep Clean</option>
               <option>Bathroom Cleaning</option>
-              <option>Move-In / Move-Out Clean</option>
+              <option>Move-In Clean (New Home)</option>
+              <option>Move-Out Clean (Old Home)</option>
               <option>Custom / Multiple Services</option>
             </select>
           </div>
@@ -597,6 +638,12 @@ footer::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;back
 </footer>
 
 <script>
+// FORCE VIDEO PLAY
+window.addEventListener('load', function() {
+  var v = document.getElementById('heroVideo');
+  if (v) { v.muted = true; v.play().catch(function() { document.addEventListener('click', function() { v.play(); }, { once: true }); }); }
+});
+
 // CURSOR
 var cur=document.getElementById("cursor"),ring=document.getElementById("cursor-ring");
 if(cur){
